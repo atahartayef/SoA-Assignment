@@ -1,0 +1,165 @@
+# MaltaShop lean platform: four Go services, three PostgreSQL databases, one
+# Valkey keyspace and one NATS JetStream server, from a single command.
+name: maltashop-lean
+
+x-go-service: &go-service
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: unless-stopped
+  environment: &go-env
+    ENVIRONMENT: ${ENVIRONMENT:-local}
+    LOG_LEVEL: ${LOG_LEVEL:-info}
+    SERVICE_VERSION: ${SERVICE_VERSION:-0.6.1}
+    NATS_URL: nats://nats:4222
+    OUTBOX_POLL_MS: ${OUTBOX_POLL_MS:-350}
+
+x-postgres: &postgres
+  image: postgres:16.4-alpine
+  restart: unless-stopped
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U maltashop -d maltashop"]
+    interval: 5s
+    timeout: 3s
+    retries: 12
+
+services:
+  # --------------------------------------------------------------- messaging
+  nats:
+    image: nats:2.10.22-alpine
+    command:
+      - "--jetstream"
+      - "--store_dir=/data"
+      - "--http_port=8222"          # monitoring endpoint
+      - "--name=maltashop-lean"
+    volumes:
+      - nats-data:/data
+    ports:
+      - "4322:4222"
+      - "8322:8222"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8222/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  # --------------------------------------------------------------- datastores
+  order-db:
+    <<: *postgres
+    environment:
+      POSTGRES_USER: maltashop
+      POSTGRES_PASSWORD: ${ORDER_DB_PASSWORD:-order_dev_pw}
+      POSTGRES_DB: maltashop
+    volumes:
+      - order-data:/var/lib/postgresql/data
+      - ./migrations/order:/docker-entrypoint-initdb.d:ro
+    ports: ["55532:5432"]
+
+  inventory-db:
+    <<: *postgres
+    environment:
+      POSTGRES_USER: maltashop
+      POSTGRES_PASSWORD: ${INVENTORY_DB_PASSWORD:-inventory_dev_pw}
+      POSTGRES_DB: maltashop
+    volumes:
+      - inventory-data:/var/lib/postgresql/data
+      - ./migrations/inventory:/docker-entrypoint-initdb.d:ro
+    ports: ["55533:5432"]
+
+  payment-db:
+    <<: *postgres
+    environment:
+      POSTGRES_USER: maltashop
+      POSTGRES_PASSWORD: ${PAYMENT_DB_PASSWORD:-payment_dev_pw}
+      POSTGRES_DB: maltashop
+    volumes:
+      - payment-data:/var/lib/postgresql/data
+      - ./migrations/payment:/docker-entrypoint-initdb.d:ro
+    ports: ["55534:5432"]
+
+  # Valkey, the open-source fork of Redis: the Notification service's own store.
+  notification-store:
+    image: valkey/valkey:8.0-alpine
+    restart: unless-stopped
+    command: ["valkey-server", "--appendonly", "yes"]
+    volumes:
+      - notification-data:/data
+    ports: ["56379:6379"]
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  # ----------------------------------------------------------------- services
+  order-service:
+    <<: *go-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: {SERVICE: order, PORT: "8080"}
+    environment:
+      <<: *go-env
+      SERVICE_NAME: order-service
+      PORT: "8080"
+      DATABASE_URL: postgres://maltashop:${ORDER_DB_PASSWORD:-order_dev_pw}@order-db:5432/maltashop
+    depends_on:
+      order-db: {condition: service_healthy}
+      nats: {condition: service_healthy}
+    ports: ["9180:8080"]
+
+  inventory-service:
+    <<: *go-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: {SERVICE: inventory, PORT: "8081"}
+    environment:
+      <<: *go-env
+      SERVICE_NAME: inventory-service
+      PORT: "8081"
+      DATABASE_URL: postgres://maltashop:${INVENTORY_DB_PASSWORD:-inventory_dev_pw}@inventory-db:5432/maltashop
+    depends_on:
+      inventory-db: {condition: service_healthy}
+      nats: {condition: service_healthy}
+    ports: ["9181:8081"]
+
+  payment-service:
+    <<: *go-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: {SERVICE: payment, PORT: "8082"}
+    environment:
+      <<: *go-env
+      SERVICE_NAME: payment-service
+      PORT: "8082"
+      DATABASE_URL: postgres://maltashop:${PAYMENT_DB_PASSWORD:-payment_dev_pw}@payment-db:5432/maltashop
+      CARD_LIMIT_EUR: ${CARD_LIMIT_EUR:-750}
+    depends_on:
+      payment-db: {condition: service_healthy}
+      nats: {condition: service_healthy}
+    ports: ["9182:8082"]
+
+  notification-service:
+    <<: *go-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: {SERVICE: notification, PORT: "8083"}
+    environment:
+      <<: *go-env
+      SERVICE_NAME: notification-service
+      PORT: "8083"
+      REDIS_URL: redis://notification-store:6379/0
+    depends_on:
+      notification-store: {condition: service_healthy}
+      nats: {condition: service_healthy}
+    ports: ["9183:8083"]
+
+volumes:
+  nats-data:
+  order-data:
+  inventory-data:
+  payment-data:
+  notification-data:
