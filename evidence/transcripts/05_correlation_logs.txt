@@ -1,0 +1,13 @@
+$ docker compose logs --no-log-prefix | grep a8c155c3-ba67-4aec-914d-f34da9986dd1 | jq -r '[.time[11:23], .service, .event] | @tsv' | sort | column -t -s $'\t'
+08:54:59.874  order-service         order.accepted
+08:55:00.192  order-service         event.published
+08:55:00.202  payment-service       payment.intent_recorded
+08:55:00.213  inventory-service     stock.reserved
+08:55:00.485  inventory-service     event.published
+08:55:00.490  order-service         order.state_changed
+08:55:00.490  payment-service       payment.authorised
+08:55:00.776  payment-service       event.published
+08:55:00.778  order-service         order.state_changed
+08:55:00.891  order-service         event.published
+08:55:00.893  inventory-service     stock.committed
+08:55:00.894  notification-service  notification.sent

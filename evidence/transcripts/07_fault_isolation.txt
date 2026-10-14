@@ -1,0 +1,11 @@
+$ docker compose stop notification-service 2>&1 | tail -1
+ Container maltashop-lean-notification-service-1 Stopped 
+
+$ curl -sS -o /dev/null -w 'checkout answered HTTP %{http_code} in %{time_total}s\n' -X POST http://localhost:9180/orders -H 'content-type: application/json' -H 'x-correlation-id: 22f98a79-01fc-4c5c-898e-54c74e412da4' -H 'idempotency-key: out-22f98a79' -d '{"customer_id":"MT-8820","items":[{"sku":"TOASTER-2S","quantity":2},{"sku":"MIXER-900","quantity":1}]}'
+checkout answered HTTP 201 in 0.004800s
+
+$ sleep 4; docker run --rm --network maltashop-lean_default natsio/nats-box:0.14.5 nats --server nats://nats:4222 consumer report MALTASHOP 2>/dev/null | grep -E 'Consumer|notification|order-service' | cut -c1-108
+│                                    Consumer report for MALTASHOP with 4 consumers                         
+│ Consumer             │ Mode │ Ack Policy │ Ack Wait │ Ack Pending │ Redelivered │ Unprocessed │ Ack Floor 
+│ notification-service │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 1 / 7%      │ 9         
+│ order-service        │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 0           │ 12        

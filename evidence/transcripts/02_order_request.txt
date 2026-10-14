@@ -1,0 +1,12 @@
+$ curl -sS -D /tmp/h.txt -o /tmp/b.json -X POST http://localhost:9180/orders -H 'content-type: application/json' -H 'x-correlation-id: a8c155c3-ba67-4aec-914d-f34da9986dd1' -H 'idempotency-key: mt-a8c155c3' -d '{"customer_id":"MT-8820","items":[{"sku":"TOASTER-2S","quantity":2},{"sku":"MIXER-900","quantity":1}]}'; grep -Ei '^HTTP|^Location|^X-Correlation' /tmp/h.txt; jq . /tmp/b.json
+HTTP/1.1 201 Created
+Location: /orders/feff2ad3-9859-4829-9201-35174e503db3
+X-Correlation-Id: a8c155c3-ba67-4aec-914d-f34da9986dd1
+{
+  "correlation_id": "a8c155c3-ba67-4aec-914d-f34da9986dd1",
+  "currency": "EUR",
+  "message": "Order received. Stock and payment are being confirmed.",
+  "order_id": "feff2ad3-9859-4829-9201-35174e503db3",
+  "state": "PENDING",
+  "total_cents": 14730
+}

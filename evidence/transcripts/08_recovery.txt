@@ -1,0 +1,13 @@
+$ docker compose start notification-service 2>&1 | tail -1
+ Container maltashop-lean-notification-service-1 Started 
+
+$ until curl -fsS http://localhost:9183/health/ready >/dev/null 2>&1; do sleep 1; done; sleep 8; docker run --rm --network maltashop-lean_default natsio/nats-box:0.14.5 nats --server nats://nats:4222 consumer report MALTASHOP 2>/dev/null | grep -E 'Consumer|notification|order-service' | cut -c1-108
+│                                    Consumer report for MALTASHOP with 4 consumers                         
+│ Consumer             │ Mode │ Ack Policy │ Ack Wait │ Ack Pending │ Redelivered │ Unprocessed │ Ack Floor 
+│ notification-service │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 0           │ 13        
+│ order-service        │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 0           │ 12        
+
+$ curl -sS http://localhost:9183/notifications | jq -r '.[] | [.template, .subject] | @tsv' | head -5 | column -t -s $'\t'
+order-confirmed  MaltaShop order 2a65e4e6 confirmed
+order-cancelled  MaltaShop order e909a0ad could not be completed
+order-confirmed  MaltaShop order feff2ad3 confirmed

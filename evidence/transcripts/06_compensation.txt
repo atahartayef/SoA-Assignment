@@ -1,0 +1,28 @@
+$ echo 'available before the order: 9'
+available before the order: 9
+
+$ curl -sS http://localhost:9180/orders/e909a0ad-e5e4-421a-8821-e6c3f2031444 | jq '{state, failure_reason, timeline: [.timeline[] | {state, note}]}'
+{
+  "state": "CANCELLED",
+  "failure_reason": "card_limit_exceeded",
+  "timeline": [
+    {
+      "state": "STOCK_RESERVED",
+      "note": "InventoryReserved"
+    },
+    {
+      "state": "COMPENSATING",
+      "note": "PaymentDeclined"
+    },
+    {
+      "state": "CANCELLED",
+      "note": "InventoryReleased"
+    }
+  ]
+}
+
+$ curl -sS http://localhost:9181/stock | jq -r '.[]|select(.sku=="FRIDGE-A3")|"available after compensation: \(.available)"'
+available after compensation: 9
+
+$ curl -sS 'http://localhost:9183/notifications?order_id=e909a0ad-e5e4-421a-8821-e6c3f2031444' | jq -r '.[].subject'
+MaltaShop order e909a0ad could not be completed

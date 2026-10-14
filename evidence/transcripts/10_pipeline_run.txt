@@ -1,0 +1,18 @@
+$ ./scripts/run_pipeline.sh
+
+[1m== verify ==[0m
+  PASS  gofmt: every file formatted                       1s
+  PASS  go vet: suspicious constructs                    22s
+  PASS  unit + contract tests, race on                   22s
+
+[1m== build ==[0m
+  PASS  order image (static binary, distroless)           4s
+  PASS  inventory image (static binary, distroless)       3s
+  PASS  payment image (static binary, distroless)         1s
+  PASS  notification image (static binary, distroless)    2s
+
+[1m== integration ==[0m
+  PASS  stack healthy                                     0s
+  PASS  choreographed saga, both failure paths            3s
+
+[32mpipeline passed: 9 checks, 0 failures[0m

@@ -1,0 +1,15 @@
+$ curl -sS http://localhost:9180/orders/feff2ad3-9859-4829-9201-35174e503db3 | jq '{state, total_cents, timeline: [.timeline[] | {state, note}]}'
+{
+  "state": "CONFIRMED",
+  "total_cents": 14730,
+  "timeline": [
+    {
+      "state": "STOCK_RESERVED",
+      "note": "InventoryReserved"
+    },
+    {
+      "state": "CONFIRMED",
+      "note": "PaymentAuthorised"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+$ docker run --rm --network maltashop-lean_default natsio/nats-box:0.14.5 nats --server nats://nats:4222 stream info MALTASHOP 2>/dev/null | grep -E 'Subjects:|Replicas:|Retention:|Storage:|Maximum Age:|Duplicate|Messages:|Bytes:|First Sequence:|Last Sequence:|Active Consumers:' | cut -c1-92
+              Subjects: maltashop.>
+              Replicas: 1
+               Storage: File
+             Retention: Limits
+      Duplicate Window: 2m0s
+      Maximum Messages: unlimited
+         Maximum Bytes: unlimited
+           Maximum Age: 30d0h0m0s
+              Messages: 25
+                 Bytes: 14 KiB
+        First Sequence: 1 @ 2026-10-15 08:55:00
+         Last Sequence: 25 @ 2026-10-15 08:56:29
+      Active Consumers: 4
+    Number of Subjects: 8
+
+$ docker run --rm --network maltashop-lean_default natsio/nats-box:0.14.5 nats --server nats://nats:4222 consumer report MALTASHOP 2>/dev/null | grep -E 'Consumer .{0,3}│|order-service|inventory-service|payment-service|notification-service' | cut -c1-108
+│ inventory-service    │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 0           │ 23        
+│ notification-service │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 0           │ 25        
+│ order-service        │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 0           │ 24        
+│ payment-service      │ Pull │ Explicit   │ 1.00s    │ 0           │ 0           │ 0           │ 23        
