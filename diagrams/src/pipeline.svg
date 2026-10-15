@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="486" viewBox="0 0 880 486" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#23201f"/></marker><marker id="arrow-grey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#75706c"/></marker><marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#8a2846"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1f6f5c"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#a2560d"/></marker><marker id="arrow-olive" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#55611f"/></marker></defs>
+<rect width="880" height="486" fill="white"/>
+<rect x="0" y="0" width="880" height="486" rx="2" fill="#ffffff" stroke="#ffffff" stroke-width="0"/>
+<rect x="16" y="44" width="118" height="54" rx="2" fill="#ffffff" stroke="#23201f" stroke-width="1.4"/>
+<text x="75.0" y="59.0" font-size="13.5" text-anchor="middle" fill="#23201f" font-weight="bold">git push</text>
+<text x="75.0" y="78.0" font-size="11" text-anchor="middle" fill="#23201f">main, or a</text>
+<text x="75.0" y="95.0" font-size="11" text-anchor="middle" fill="#23201f">one-day branch</text>
+<rect x="170" y="12" width="168" height="56" rx="2" fill="#f4f2ef" stroke="#23201f" stroke-width="1.4"/>
+<text x="254.0" y="36.5" font-size="13" text-anchor="middle" fill="#23201f" font-weight="bold">lint</text>
+<text x="254.0" y="55.5" font-size="11" text-anchor="middle" fill="#23201f">gofmt · golangci-lint</text>
+<rect x="170" y="84" width="168" height="66" rx="2" fill="#f4f2ef" stroke="#23201f" stroke-width="1.4"/>
+<text x="254.0" y="96.5" font-size="13" text-anchor="middle" fill="#23201f" font-weight="bold">test</text>
+<text x="254.0" y="115.5" font-size="11" text-anchor="middle" fill="#23201f">go test ./... -race</text>
+<text x="254.0" y="132.5" font-size="11" text-anchor="middle" fill="#23201f">unit + contract</text>
+<text x="254.0" y="149.5" font-size="11" text-anchor="middle" fill="#23201f">coverage gate 60 %</text>
+<line x1="134" y1="62" x2="168" y2="40" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<line x1="134" y1="76" x2="168" y2="112" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<rect x="372" y="42" width="172" height="72" rx="2" fill="#fbf0e4" stroke="#a2560d" stroke-width="1.4"/>
+<text x="458.0" y="57.5" font-size="13" text-anchor="middle" fill="#23201f" font-weight="bold">build</text>
+<text x="458.0" y="76.5" font-size="11" text-anchor="middle" fill="#23201f">one Dockerfile,</text>
+<text x="458.0" y="93.5" font-size="11" text-anchor="middle" fill="#23201f">four images,</text>
+<text x="458.0" y="110.5" font-size="11" text-anchor="middle" fill="#23201f">tagged by commit SHA</text>
+<line x1="338" y1="40" x2="370" y2="66" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<line x1="338" y1="117" x2="370" y2="90" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<rect x="578" y="10" width="160" height="60" rx="2" fill="#fbf0e4" stroke="#a2560d" stroke-width="1.4"/>
+<text x="658.0" y="28.0" font-size="13" text-anchor="middle" fill="#23201f" font-weight="bold">integration</text>
+<text x="658.0" y="47.0" font-size="11" text-anchor="middle" fill="#23201f">compose up --wait</text>
+<text x="658.0" y="64.0" font-size="11" text-anchor="middle" fill="#23201f">the whole saga</text>
+<rect x="578" y="86" width="160" height="72" rx="2" fill="#fdf2f5" stroke="#8a2846" stroke-width="1.4"/>
+<text x="658.0" y="101.5" font-size="13" text-anchor="middle" fill="#23201f" font-weight="bold">scan</text>
+<text x="658.0" y="120.5" font-size="11" text-anchor="middle" fill="#23201f">Trivy: HIGH/CRITICAL</text>
+<text x="658.0" y="137.5" font-size="11" text-anchor="middle" fill="#23201f">gitleaks: secrets</text>
+<text x="658.0" y="154.5" font-size="11" text-anchor="middle" fill="#23201f">both block the release</text>
+<line x1="544" y1="66" x2="576" y2="44" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<line x1="544" y1="90" x2="576" y2="112" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<text x="440" y="186" font-size="12" text-anchor="middle" fill="#8a2846" font-style="italic">the four images built once are the only ones ever deployed; later jobs name them by digest</text>
+<rect x="60" y="212" width="368" height="96" rx="2" fill="#f0f3e4" stroke="#55611f" stroke-width="1.6"/>
+<text x="244" y="236" font-size="13.5" text-anchor="middle" fill="#55611f" font-weight="bold">release: order, inventory, notification</text>
+<text x="244" y="256" font-size="11.5" text-anchor="middle" fill="#23201f">continuous deployment — no human in the way</text>
+<text x="244" y="271" font-size="11.5" text-anchor="middle" fill="#23201f">rolling update: new tasks must pass readiness</text>
+<text x="244" y="286" font-size="11.5" text-anchor="middle" fill="#23201f">before any old task is drained</text>
+<text x="244" y="301" font-size="11.5" text-anchor="middle" fill="#23201f">ten-minute watch, automatic roll-back above 1 % 5xx</text>
+<polyline points="658,158 658,176 244,176 244,210" fill="none" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<rect x="468" y="212" width="352" height="96" rx="2" fill="#fdf2f5" stroke="#8a2846" stroke-width="1.6"/>
+<text x="644" y="236" font-size="13.5" text-anchor="middle" fill="#8a2846" font-weight="bold">release: payment — manual</text>
+<text x="644" y="256" font-size="11.5" text-anchor="middle" fill="#23201f">the one job a person still starts, because a bad</text>
+<text x="644" y="271" font-size="11.5" text-anchor="middle" fill="#23201f">payment release costs money, not minutes</text>
+<text x="644" y="286" font-size="11.5" text-anchor="middle" fill="#23201f">same rolling update, tighter guard (0.5 % over 15 min)</text>
+<text x="644" y="301" font-size="11.5" text-anchor="middle" fill="#23201f">runs only after the other three are stable</text>
+<line x1="428" y1="260" x2="466" y2="260" stroke="#8a2846" stroke-width="1.5" marker-end="url(#arrow-accent)"/>
+<rect x="60" y="334" width="760" height="90" rx="2" fill="#ffffff" stroke="#75706c" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="440" y="356" font-size="13" text-anchor="middle" fill="#75706c" font-weight="bold">a rolling update, in detail</text>
+<rect x="92" y="372" width="150" height="42" rx="2" fill="#f4f2ef" stroke="#23201f" stroke-width="1.4"/>
+<text x="167.0" y="389.5" font-size="12.5" text-anchor="middle" fill="#23201f" font-weight="bold">4 old</text>
+<text x="167.0" y="408.5" font-size="10.5" text-anchor="middle" fill="#23201f">version n</text>
+<rect x="274" y="372" width="150" height="42" rx="2" fill="#fbf0e4" stroke="#a2560d" stroke-width="1.4"/>
+<text x="349.0" y="389.5" font-size="12.5" text-anchor="middle" fill="#23201f" font-weight="bold">3 old + 2 new</text>
+<text x="349.0" y="408.5" font-size="10.5" text-anchor="middle" fill="#23201f">both serving</text>
+<line x1="246" y1="393" x2="270" y2="393" stroke="#75706c" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+<rect x="456" y="372" width="150" height="42" rx="2" fill="#fbf0e4" stroke="#a2560d" stroke-width="1.4"/>
+<text x="531.0" y="389.5" font-size="12.5" text-anchor="middle" fill="#23201f" font-weight="bold">1 old + 4 new</text>
+<text x="531.0" y="408.5" font-size="10.5" text-anchor="middle" fill="#23201f">draining</text>
+<line x1="428" y1="393" x2="452" y2="393" stroke="#75706c" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+<rect x="638" y="372" width="150" height="42" rx="2" fill="#f0f3e4" stroke="#55611f" stroke-width="1.4"/>
+<text x="713.0" y="389.5" font-size="12.5" text-anchor="middle" fill="#23201f" font-weight="bold">4 new</text>
+<text x="713.0" y="408.5" font-size="10.5" text-anchor="middle" fill="#23201f">version n+1</text>
+<line x1="610" y1="393" x2="634" y2="393" stroke="#75706c" stroke-width="1.5" marker-end="url(#arrow-grey)"/>
+<text x="440" y="452" font-size="12" text-anchor="middle" fill="#75706c" font-style="italic">no second environment and no traffic splitting: capacity never dips, and nothing is paid for twice</text>
+<text x="440" y="472" font-size="12" text-anchor="middle" fill="#75706c" font-style="italic">roll back = redeploy the previous task definition, which is still registered (about 90 seconds)</text>
+</svg>

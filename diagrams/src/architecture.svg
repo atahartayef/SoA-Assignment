@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="600" viewBox="0 0 880 600" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="arrow-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#23201f"/></marker><marker id="arrow-grey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#75706c"/></marker><marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#8a2846"/></marker><marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#1f6f5c"/></marker><marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#a2560d"/></marker><marker id="arrow-olive" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#55611f"/></marker></defs>
+<rect width="880" height="600" fill="white"/>
+<rect x="0" y="0" width="880" height="600" rx="2" fill="#ffffff" stroke="#ffffff" stroke-width="0"/>
+<rect x="24" y="12" width="262" height="44" rx="2" fill="#ffffff" stroke="#23201f" stroke-width="1.4"/>
+<text x="155.0" y="30.5" font-size="13.5" text-anchor="middle" fill="#23201f" font-weight="bold">Web storefront</text>
+<text x="155.0" y="49.5" font-size="11.5" text-anchor="middle" fill="#23201f">browser</text>
+<line x1="155" y1="56" x2="160" y2="84" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<rect x="314" y="12" width="262" height="44" rx="2" fill="#ffffff" stroke="#23201f" stroke-width="1.4"/>
+<text x="445.0" y="30.5" font-size="13.5" text-anchor="middle" fill="#23201f" font-weight="bold">Mobile app</text>
+<text x="445.0" y="49.5" font-size="11.5" text-anchor="middle" fill="#23201f">iOS / Android</text>
+<line x1="445" y1="56" x2="440" y2="84" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<rect x="604" y="12" width="262" height="44" rx="2" fill="#ffffff" stroke="#23201f" stroke-width="1.4"/>
+<text x="735.0" y="30.5" font-size="13.5" text-anchor="middle" fill="#23201f" font-weight="bold">30 partner retailers</text>
+<text x="735.0" y="49.5" font-size="11.5" text-anchor="middle" fill="#23201f">server to server</text>
+<line x1="735" y1="56" x2="720" y2="84" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<rect x="24" y="84" width="832" height="56" rx="2" fill="#fbf0e4" stroke="#a2560d" stroke-width="1.6"/>
+<text x="440.0" y="108" font-size="15" text-anchor="middle" fill="#a2560d" font-weight="bold">Edge gateway</text>
+<text x="440.0" y="127" font-size="11.5" text-anchor="middle" fill="#75706c">TLS · routing · per-retailer API key and scope · rate limit 60 req/min per partner · customer sessions</text>
+<rect x="24" y="172" width="500" height="122" rx="2" fill="#fdf2f5" stroke="#8a2846" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="274" y="191" font-size="12" text-anchor="middle" fill="#8a2846" font-style="italic">extracted first — the hot path, and only the hot path</text>
+<rect x="36" y="200" width="150" height="82" rx="2" fill="#ffffff" stroke="#8a2846" stroke-width="2.0"/>
+<text x="111.0" y="222" font-size="15" text-anchor="middle" fill="#8a2846" font-weight="bold">Order</text>
+<line x1="36" y1="232" x2="186" y2="232" stroke="#8a2846" stroke-width="1.0"/>
+<path d="M46,244 v14 a9.0,4 0 0 0 18,0 v-14" fill="white" stroke="#23201f" stroke-width="1.2"/><ellipse cx="55.0" cy="244" rx="9.0" ry="4" fill="white" stroke="#23201f" stroke-width="1.2"/>
+<text x="72" y="254" font-size="13" text-anchor="start" fill="#23201f">orders</text>
+<rect x="200" y="200" width="150" height="82" rx="2" fill="#ffffff" stroke="#8a2846" stroke-width="2.0"/>
+<text x="275.0" y="222" font-size="15" text-anchor="middle" fill="#8a2846" font-weight="bold">Inventory</text>
+<line x1="200" y1="232" x2="350" y2="232" stroke="#8a2846" stroke-width="1.0"/>
+<path d="M210,244 v14 a9.0,4 0 0 0 18,0 v-14" fill="white" stroke="#23201f" stroke-width="1.2"/><ellipse cx="219.0" cy="244" rx="9.0" ry="4" fill="white" stroke="#23201f" stroke-width="1.2"/>
+<text x="236" y="254" font-size="13" text-anchor="start" fill="#23201f">stock · holds</text>
+<rect x="364" y="200" width="150" height="82" rx="2" fill="#ffffff" stroke="#8a2846" stroke-width="2.0"/>
+<text x="439.0" y="222" font-size="15" text-anchor="middle" fill="#8a2846" font-weight="bold">Payment</text>
+<line x1="364" y1="232" x2="514" y2="232" stroke="#8a2846" stroke-width="1.0"/>
+<path d="M374,244 v14 a9.0,4 0 0 0 18,0 v-14" fill="white" stroke="#23201f" stroke-width="1.2"/><ellipse cx="383.0" cy="244" rx="9.0" ry="4" fill="white" stroke="#23201f" stroke-width="1.2"/>
+<text x="400" y="254" font-size="13" text-anchor="start" fill="#23201f">payments</text>
+<line x1="274" y1="140" x2="274" y2="170" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<rect x="552" y="164" width="304" height="130" rx="2" fill="#f0f3e4" stroke="#55611f" stroke-width="1.8"/>
+<text x="704" y="188" font-size="14" text-anchor="middle" fill="#55611f" font-weight="bold">Legacy core (modular monolith)</text>
+<text x="704" y="208" font-size="11.5" text-anchor="middle" fill="#23201f">Catalogue · Customer · Reporting</text>
+<text x="704" y="224" font-size="11.5" text-anchor="middle" fill="#23201f">still PHP, still one MySQL schema,</text>
+<text x="704" y="240" font-size="11.5" text-anchor="middle" fill="#23201f">now behind an anti-corruption layer</text>
+<text x="704" y="256" font-size="11.5" text-anchor="middle" fill="#23201f">and shrinking one module at a time</text>
+<path d="M566,262 v14 a9.0,4 0 0 0 18,0 v-14" fill="white" stroke="#55611f" stroke-width="1.2"/><ellipse cx="575.0" cy="262" rx="9.0" ry="4" fill="white" stroke="#55611f" stroke-width="1.2"/>
+<text x="704" y="288" font-size="11.5" text-anchor="middle" fill="#55611f">MySQL</text>
+<line x1="704" y1="140" x2="704" y2="162" stroke="#23201f" stroke-width="1.5" marker-end="url(#arrow-ink)"/>
+<line x1="524" y1="232" x2="550" y2="232" stroke="#23201f" stroke-width="1.5" marker-start="url(#arrow-ink)" marker-end="url(#arrow-ink)"/>
+<text x="537" y="222" font-size="10.5" text-anchor="middle" fill="#75706c">ACL</text>
+<rect x="24" y="318" width="832" height="56" rx="2" fill="#e7f3f0" stroke="#1f6f5c" stroke-width="1.6"/>
+<text x="440.0" y="342" font-size="15" text-anchor="middle" fill="#1f6f5c" font-weight="bold">NATS JetStream — one stream, MALTASHOP, subject maltashop.&gt;</text>
+<text x="440.0" y="361" font-size="11.5" text-anchor="middle" fill="#75706c">eight subjects · 30-day file retention · one durable pull consumer per service · 2-minute duplicate window</text>
+<line x1="111" y1="294" x2="111" y2="316" stroke="#1f6f5c" stroke-width="1.5" marker-start="url(#arrow-amber)" marker-end="url(#arrow-amber)"/>
+<line x1="275" y1="294" x2="275" y2="316" stroke="#1f6f5c" stroke-width="1.5" marker-start="url(#arrow-amber)" marker-end="url(#arrow-amber)"/>
+<line x1="439" y1="294" x2="439" y2="316" stroke="#1f6f5c" stroke-width="1.5" marker-start="url(#arrow-amber)" marker-end="url(#arrow-amber)"/>
+<line x1="704" y1="294" x2="704" y2="316" stroke="#1f6f5c" stroke-width="1.5" marker-start="url(#arrow-amber)" marker-end="url(#arrow-amber)"/>
+<rect x="24" y="400" width="256" height="104" rx="2" fill="#ffffff" stroke="#23201f" stroke-width="1.4"/>
+<text x="152" y="422" font-size="14" text-anchor="middle" fill="#23201f" font-weight="bold">Notification</text>
+<path d="M96,438 v14 a9.0,4 0 0 0 18,0 v-14" fill="white" stroke="#23201f" stroke-width="1.2"/><ellipse cx="105.0" cy="438" rx="9.0" ry="4" fill="white" stroke="#23201f" stroke-width="1.2"/>
+<text x="124" y="450" font-size="11.5" text-anchor="start" fill="#23201f">Valkey keyspace</text>
+<text x="152" y="474" font-size="11.5" text-anchor="middle" fill="#23201f">e-mail and SMS; if it dies the</text>
+<text x="152" y="489" font-size="11.5" text-anchor="middle" fill="#23201f">events simply wait on the stream</text>
+<line x1="152" y1="374" x2="152" y2="398" stroke="#1f6f5c" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+<rect x="304" y="400" width="256" height="104" rx="2" fill="#f0f3e4" stroke="#55611f" stroke-width="1.5"/>
+<text x="432" y="422" font-size="14" text-anchor="middle" fill="#55611f" font-weight="bold">AI Recommendation</text>
+<text x="432" y="441" font-size="11.5" text-anchor="middle" fill="#23201f">Python; reads order and browsing</text>
+<text x="432" y="456" font-size="11.5" text-anchor="middle" fill="#23201f">events from the stream, trains and</text>
+<text x="432" y="471" font-size="11.5" text-anchor="middle" fill="#23201f">serves through the gateway, never</text>
+<text x="432" y="486" font-size="11.5" text-anchor="middle" fill="#23201f">on the checkout path</text>
+<line x1="432" y1="374" x2="432" y2="398" stroke="#55611f" stroke-width="1.5" marker-end="url(#arrow-olive)"/>
+<rect x="584" y="400" width="272" height="104" rx="2" fill="#fbf0e4" stroke="#a2560d" stroke-width="1.5"/>
+<text x="720" y="422" font-size="14" text-anchor="middle" fill="#a2560d" font-weight="bold">Observability</text>
+<text x="720" y="441" font-size="11.5" text-anchor="middle" fill="#23201f">OpenTelemetry SDKs → Collector →</text>
+<text x="720" y="456" font-size="11.5" text-anchor="middle" fill="#23201f">SigNoz (self-hosted, ClickHouse)</text>
+<text x="720" y="471" font-size="11.5" text-anchor="middle" fill="#23201f">logs, metrics and traces in one place,</text>
+<text x="720" y="486" font-size="11.5" text-anchor="middle" fill="#23201f">joined by correlation_id</text>
+<polyline points="856,346 868,346 868,452 854,452" fill="none" stroke="#a2560d" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arrow-blue)"/>
+<rect x="24" y="524" width="832" height="60" rx="2" fill="#ffffff" stroke="#75706c" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="440" y="546" font-size="12.5" text-anchor="middle" fill="#75706c" font-weight="bold">Runtime: AWS ECS Fargate for the first two quarters, then EKS in phase three. Managed PostgreSQL (RDS),</text>
+<text x="440" y="564" font-size="11.5" text-anchor="middle" fill="#75706c" font-style="italic">managed Valkey and a three-node NATS cluster sit outside the task runtime. Plain arrow = synchronous · double arrow = publish and subscribe</text>
+</svg>
