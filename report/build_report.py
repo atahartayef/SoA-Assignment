@@ -40,7 +40,7 @@ CONTENT = ROOT / "content"
 LOGOS = ROOT / "logos"
 OUTPUT = WORK / "out"
 DOCX_PATH = OUTPUT / "MaltaShop_Microservices_Report_VersionB.docx"
-REPOSITORY = "https://gitlab.com/<your-gitlab-username>/maltashop-lean-platform"
+REPOSITORY = "https://github.com/atahartayef/SoA-Assignment"
 TOC_PAGES = ROOT / "toc_pages.json"
 COVER = json.loads((ROOT / "cover.json").read_text(encoding="utf-8"))
 
@@ -842,11 +842,11 @@ def commit_history() -> str:
 def appendix_blocks() -> list[Block]:
     blocks = [Block("h1", "Appendix A: Git Repository"),
               Block("paragraph", f"The prototype, its tests, the CI workflow, the diagrams and the scripts that "
-                                 f"build this report are in a public GitLab repository, shared with the "
+                                 f"build this report are in a public GitHub repository, shared with the "
                                  f"lecturer: **{REPOSITORY}**"),
               Block("paragraph", "To run the prototype, clone the repository and start it with Docker Compose. "
                                  "The README explains the endpoints and every environment variable."),
-              Block("code", f"git clone {REPOSITORY}.git\ncd maltashop-lean-platform\n"
+              Block("code", f"git clone {REPOSITORY}.git\ncd SoA-Assignment\n"
                             "docker compose up --build -d --wait\n./scripts/smoke_test.sh"),
               Block("paragraph", "The commit history below, oldest first, shows the prototype being built step "
                                  "by step (it was taken when this report was built)."),
