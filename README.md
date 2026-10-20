@@ -74,8 +74,8 @@ subjects it needs, so a restart resumes exactly where it stopped.
 Requirements: Docker with Compose v2, plus `curl`, `jq` and `uuidgen`.
 
 ```bash
-git clone <this repository>
-cd maltashop-lean-platform
+git clone https://github.com/atahartayef/SoA-Assignment.git
+cd SoA-Assignment
 cp .env.example .env            # optional; the defaults work
 docker compose up --build -d --wait
 ./scripts/smoke_test.sh
